@@ -1,0 +1,440 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #2c3e50;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --message-bg-user: #007bff;
+    --message-bg-ai: #f1f1f1;
+    --message-text-user: #ffffff;
+    --message-text-ai: #333333;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --message-bg-user: #0056b3;
+    --message-bg-ai: #2d2d2d;
+    --message-text-user: #ffffff;
+    --message-text-ai: #ffffff;
+    --card-bg: #2d2d2d;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 全局样式 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* 头部区域 */
+.header {
+    text-align: center;
+    padding: 100px 0 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: var(--card-shadow);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 20px 0 10px;
+}
+
+.tagline {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* 关于我区域 */
+.about-section {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.about-content h2,
+.projects-grid h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.about-text h3 {
+    color: var(--secondary-color);
+    margin: 25px 0 15px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+/* 项目展示区域 */
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    padding: 15px 20px 10px;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.project-card p {
+    padding: 0 20px 15px;
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.view-details {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 20px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-details:hover {
+    background: var(--secondary-color);
+}
+
+/* 聊天区域 */
+.chat-section {
+    padding: 50px 0;
+    background-color: var(--bg-color);
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.chat-header {
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+.messages {
+    padding: 20px;
+    height: 400px;
+    overflow-y: auto;
+    background-color: var(--bg-color);
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    animation-duration: 0.3s;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    background-color: var(--message-bg-user);
+    color: white;
+}
+
+.ai-message .avatar {
+    background-color: var(--message-bg-ai);
+    color: var(--message-text-ai);
+}
+
+.message-content {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    flex-direction: row-reverse;
+}
+
+.user-message .avatar {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.user-message .message-content {
+    background-color: var(--message-bg-user);
+    color: var(--message-text-user);
+    margin-left: auto;
+}
+
+.ai-message .message-content {
+    background-color: var(--message-bg-ai);
+    color: var(--message-text-ai);
+}
+
+.message-timestamp {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.input-area {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    background-color: var(--bg-color);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    resize: none;
+    max-height: 100px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+#send-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.typing-indicator {
+    padding: 10px;
+    color: var(--text-color);
+    font-style: italic;
+    display: none;
+}
+
+.typing-indicator.visible {
+    display: block;
+}
+
+/* 适配深色模式的额外样式 */
+body.dark-theme .input-area {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme #user-input {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        padding: 60px 0 30px;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .message-content {
+        max-width: 85%;
+    }
+    
+    .input-area {
+        padding: 15px;
+    }
+    
+    #send-btn {
+        padding: 10px 15px;
+    }
+}
+
+/* 页脚区域 */
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.copyright {
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+
+/* 在 style.css 底部添加 */
+.tooltip {
+    position: fixed;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tooltip.show {
+    opacity: 1;
+}
+ 

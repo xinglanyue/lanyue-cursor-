@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 - 蓝月</title>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    <!-- AOS库用于滚动动画 -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 主题切换按钮 -->
+    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- 头部区域 -->
+    <header class="header" data-aos="fade-down">
+        <div class="profile-container">
+            <div class="profile-image">
+                <img src="images/avatar.jpg" alt="邢蓝月的照片">
+            </div>
+            <h1>邢蓝月</h1>
+            <p class="tagline">品牌营销专家 / 小红书个人品牌教练 / AI自动化专家</p>
+        </div>
+    </header>
+
+    <!-- 个人介绍区域 -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <!-- 左侧个人介绍 -->
+                <div class="about-content" data-aos="fade-right">
+                    <h2>关于我</h2>
+                    <div class="about-text">
+                        <h3>个人简介</h3>
+                        <p>青岛人，现居北京</p>
+                        <p>15年品牌营销经验</p>
+                        <p>小红书博主，单月最高涨粉8k</p>
+                        <p>斑码AI社群专属IP变现教练</p>
+                        <p>《斑码AI自动化爆款训练营》《破局产品打造行动营》教练</p>
+
+                        <h3>专业服务</h3>
+                        <p>• 小红书账号运营指导（起号、涨粉、变现）</p>
+                        <p>• 小红书AI自动化工具应用</p>
+                        <p>• IP打造与变现指导（学员第二个月收入过万）</p>
+
+                        <h3>人生信条</h3>
+                        <p>日拱一卒，功不唐捐！</p>
+
+                        <h3>专业技能</h3>
+                        <div class="skills">
+                            <span class="skill-tag">品牌营销</span>
+                            <span class="skill-tag">小红书运营</span>
+                            <span class="skill-tag">AI自动化</span>
+                            <span class="skill-tag">IP打造</span>
+                            <span class="skill-tag">内容创作</span>
+                            <span class="skill-tag">个人品牌</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧项目展示 -->
+                <div class="projects-grid" data-aos="fade-left">
+                    <h2>成功案例</h2>
+                    <div class="project-cards">
+                        <!-- 项目卡片 1：小红书运营 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop" alt="小红书运营">
+                            <h3>小红书爆款账号</h3>
+                            <p>单月涨粉8k+，打造个人IP变现体系</p>
+                            <button class="view-details">查看详情</button>
+                        </div>
+                        <!-- 项目卡片 2：AI培训 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop" alt="AI自动化">
+                            <h3>AI自动化培训</h3>
+                            <p>学员第二个月成功实现收入过万</p>
+                            <button class="view-details">查看详情</button>
+                        </div>
+                        <!-- 项目卡片 3：品牌营销 -->
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="品牌营销">
+                            <h3>品牌营销咨询</h3>
+                            <p>15年品牌营销经验，助力企业品牌升级</p>
+                            <button class="view-details">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI对话区域 -->
+    <section class="chat-section" data-aos="fade-up">
+        <div class="container">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>与蓝月对话</h2>
+                    <div class="header-buttons">
+                        <button id="export-btn" class="header-btn" title="导出对话记录">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button id="clear-btn" class="header-btn" title="清空对话记录">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="messages" id="messages">
+                    <!-- 消息将在这里动态添加 -->
+                </div>
+
+                <div class="input-area">
+                    <textarea id="user-input" placeholder="请输入您想咨询的问题..." rows="1"></textarea>
+                    <button id="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚联系方式 -->
+    <footer class="footer" data-aos="fade-up">
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:315882886@qq.com" title="邮箱：315882886@qq.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.xiaohongshu.com/user/profile/5b4034e611be100224a8d258" target="_blank" title="小红书：nihaolanyue">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a href="javascript:void(0)" onclick="showWechat()" title="微信：nihaolanyue">
+                    <i class="fab fa-weixin"></i>
+                </a>
+                <a href="tel:15110030426" title="电话：15110030426">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            <p class="copyright">© 2024 邢蓝月. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS库 -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- 主要脚本 -->
+    <script src="script.js"></script>
+</body>
+</html> 
